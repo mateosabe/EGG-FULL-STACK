@@ -17,7 +17,9 @@ public class persona {
     private int edad;
     private String sexo;
     private int peso;
-    private int altura;
+    private float altura;
+    
+    private float IMC;
 
     public persona() {
     }

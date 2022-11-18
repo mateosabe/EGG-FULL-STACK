@@ -16,6 +16,7 @@ un booleano.
 package servicioPersona;
 
 import java.util.Scanner;
+
 import paqutePersona.persona;
 
 /*
@@ -35,15 +36,47 @@ public class servicioPersona {
         System.out.println("Ingrese edad");
         P1.setEdad(leer.nextInt());
         String sexo;
+        boolean condicion = false;
+
         do {
             System.out.println("Ingrese sexo H(hombre), M(mujer), o O(otro)");
             sexo = leer.next();
-            if (sexo.equalsIgnoreCase(sexo) != "h" || sexo.equalsIgnoreCase(sexo) != "m" || sexo.equalsIgnoreCase(sexo) != "o") {
+            if (sexo.equalsIgnoreCase("h") || sexo.equalsIgnoreCase("m") || sexo.equalsIgnoreCase("o")) {
+                P1.setSexo(sexo);
+                condicion = true;
+
+            } else {
+                System.out.println("El valor ingresado es inválido, por favor, intente de nuevo");
 
             }
-        } while (true);
-
-        P1.setPeso(leer.next());
+        } while (condicion == false);
+        System.out.println("Ingrese peso: ");
+        P1.setPeso(leer.nextInt());
+        System.out.println("Ingrese altura: ");
+        P1.setAltura(leer.nextInt());
+        
+        
+        
+        
         return P1;
     }
+    public void calcularIMC(persona P1){
+        
+        int IMC=P1.getPeso()/(P1.getAltura()^2);
+        int retorno = Integer.compare(IMC, range(20, 25));
+        
+        if (IMC>=20&& IMC<=25) {
+            
+        }else{
+            if (IMC>20) {
+                System.out.println("Su peso está por debajo del ideal.");
+                
+            }else{
+                System.out.println("Su peso está por encima del ideal");
+            }
+        }
+        
+    }
+            
+            
 }
