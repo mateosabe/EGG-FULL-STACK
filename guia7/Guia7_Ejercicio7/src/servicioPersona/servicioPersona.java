@@ -22,15 +22,28 @@ import paqutePersona.persona;
  * @author mateo
  */
 public class servicioPersona {
+
     Scanner leer = new Scanner(System.in).useDelimiter("/n");
-    
-    public crearPersona(){
+
+    public persona crearPersona() {
         persona P1 = new persona();
-        
+
         System.out.println("Ingrese los datos de la persona");
         System.out.println("");
-        System.out.println("Ingrese nombre: "+P1.setNombre(leer.next()));
-        
+        System.out.println("Ingrese nombre: ");
+        P1.setNombre(leer.next());
+        System.out.println("Ingrese edad");
+        P1.setEdad(leer.nextInt());
+        String sexo;
+        do {
+            System.out.println("Ingrese sexo H(hombre), M(mujer), o O(otro)");
+            sexo = leer.next();
+            if (sexo.equalsIgnoreCase(sexo) != "h" || sexo.equalsIgnoreCase(sexo) != "m" || sexo.equalsIgnoreCase(sexo) != "o") {
+
+            }
+        } while (true);
+
+        P1.setPeso(leer.next());
         return P1;
     }
 }
