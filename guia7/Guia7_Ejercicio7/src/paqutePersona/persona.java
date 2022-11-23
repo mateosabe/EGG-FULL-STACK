@@ -64,12 +64,20 @@ public class persona {
         this.peso = peso;
     }
 
-    public int getAltura() {
+    public float getAltura() {
         return altura;
     }
 
-    public void setAltura(int altura) {
+    public void setAltura(float altura) {
         this.altura = altura;
+    }
+
+    public float getIMC() {
+        return IMC;
+    }
+
+    public void setIMC(float IMC) {
+        this.IMC = IMC;
     }
     
 }

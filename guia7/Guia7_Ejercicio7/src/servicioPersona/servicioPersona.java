@@ -24,7 +24,7 @@ import paqutePersona.persona;
  */
 public class servicioPersona {
 
-    Scanner leer = new Scanner(System.in).useDelimiter("/n");
+    Scanner leer = new Scanner(System.in).useDelimiter("\n");
 
     public persona crearPersona() {
         persona P1 = new persona();
@@ -50,33 +50,39 @@ public class servicioPersona {
 
             }
         } while (condicion == false);
+        
         System.out.println("Ingrese peso: ");
         P1.setPeso(leer.nextInt());
         System.out.println("Ingrese altura: ");
-        P1.setAltura(leer.nextInt());
-        
-        
-        
-        
+        P1.setAltura(leer.nextFloat());
+
         return P1;
     }
-    public void calcularIMC(persona P1){
-        
-        int IMC=P1.getPeso()/(P1.getAltura()^2);
-        int retorno = Integer.compare(IMC, range(20, 25));
-        
-        if (IMC>=20&& IMC<=25) {
-            
-        }else{
-            if (IMC>20) {
-                System.out.println("Su peso está por debajo del ideal.");
-                
-            }else{
-                System.out.println("Su peso está por encima del ideal");
+
+    public void calcularIMC(persona P1) {
+
+        float IMC = P1.getPeso() / (P1.getAltura() * P1.getAltura());
+
+        if (IMC >= 20 && IMC <= 25) {
+            P1.setIMC(0);
+        } else {
+            if (IMC < 20) {
+                P1.setIMC(-1);
+
+            } else {
+                P1.setIMC(1);
             }
         }
-        
+
     }
-            
-            
+
+    public boolean esMayorDeEdad(persona P1) {
+        boolean retorno = false;
+
+        if (P1.getEdad() > 18) {
+            retorno = true;
+        }
+        return retorno;
+    }
+
 }
