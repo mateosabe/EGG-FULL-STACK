@@ -13,13 +13,24 @@ Ejemplo fecha actual: Date fechaActual = new Date();
 
 package guia7_ejercicio11;
 
+import Date.Date;
+import java.util.Scanner;
+
 /**
  *
  * @author msabella
  */
 public class Guia7_Ejercicio11 {
     public static void main(String[] args) {
-       
+        Scanner leer=new Scanner(System.in).useDelimiter("\n");
+        System.out.println("Ingrese año");
+        int anio=leer.nextInt();
+        System.out.println("Ingrese mes");
+        int mes=leer.nextInt();
+        System.out.println("Ingrese dia");
+        int dia=leer.nextInt();
+
+       Date fecha = new Date(anio, mes, dia);
         
         
         

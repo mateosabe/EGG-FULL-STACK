@@ -11,5 +11,20 @@ package Date;
  */
 public class Date {
     private Date fecha;
+
+    public Date() {
+    }
+
+    public Date(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
     
 }
