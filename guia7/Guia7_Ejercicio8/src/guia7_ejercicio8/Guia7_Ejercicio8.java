@@ -62,9 +62,9 @@ public class Guia7_Ejercicio8 {
         System.out.println("2- Invertir frase");
         System.out.println("3- Mostrar veces que se repite una letra");
         System.out.println("4- Comparar longitud con una nueva frase.");
-        System.out.println("5- ");
-        System.out.println("6- ");
-        System.out.println("7- ");
+        System.out.println("5- Unir con nueva frase");
+        System.out.println("6- Reemplazar las a por una letra");
+        System.out.println("7- Ver si contiene una letra especifica");
 
         int opcion = leer.nextInt();
         switch (opcion) {
@@ -81,7 +81,13 @@ public class Guia7_Ejercicio8 {
                 compararLongitud(C1);
                 break;
             case 5:
-
+                unirFrases(C1);
+                break;
+            case 6:
+                reemplazar(C1);
+                break;
+            case 7:
+                contiene(C1);
                 break;
             default:
                 throw new AssertionError();
@@ -156,16 +162,39 @@ public class Guia7_Ejercicio8 {
 
     }
 
-    public void unirFrases(String frase) {
+    public static void unirFrases(Cadena C1) {
+        System.out.println("Ingrese frase para unir");
+        String fraseUnir = leer.next();
+        System.out.println("Su nueva frase es: " + C1.getFrase().concat(" ").concat(fraseUnir));
 
     }
 
-    public void reemplazar(String letra) {
-
+    public static void reemplazar(Cadena C1) {
+        System.out.println("Ingrese letra con la cual desea reemplazar las 'a'");
+        String letraCambiarA = leer.next();
+        for (int i = 0; i < C1.getLongitudFrase(); i++) {
+            if (C1.getFrase().substring(i,i+1).equalsIgnoreCase("a")) {
+                C1.setFrase(C1.getFrase().replace("a", letraCambiarA));
+            }
+        }
+        System.out.println("La nueva frase es "+C1.getFrase());
     }
 
-    public void contiene(String letra) {
-
+    public static void contiene(Cadena C1) {
+        System.out.println("Ingrese letra para ver si exite en la frase guardada");
+        String comprobacionPalabra=leer.next();
+        int contadorDeLetra=0;
+        for (int i = 0; i <C1.getLongitudFrase(); i++) {
+            if (C1.getFrase().substring(i, i+1).equalsIgnoreCase(comprobacionPalabra)) {
+                contadorDeLetra++;
+            }
+        }
+        
+        if (contadorDeLetra==0) {
+            System.out.println("El caracter ingresado no se encuentra en la frase guardada");
+        }else{
+            System.out.println("El caracter "+'"'+comprobacionPalabra+'"'+" se encuentra "+contadorDeLetra+" veces en la frase guardada.");
+        }
     }
 
 }
